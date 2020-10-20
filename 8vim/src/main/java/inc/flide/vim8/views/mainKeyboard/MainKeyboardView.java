@@ -59,9 +59,13 @@ public class MainKeyboardView extends View{
         }
 
         xboardView = layout.findViewById(R.id.xboardView);
-        setupButtonsOnSideBar();
-        //setupPredictiveTextCandidateButtons();
+    }
 
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+
+        setupButtonsOnSideBar();
         setHapticFeedbackEnabled(true);
     }
 

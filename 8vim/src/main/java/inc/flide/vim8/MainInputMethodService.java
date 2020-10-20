@@ -70,7 +70,7 @@ public class MainInputMethodService extends InputMethodService {
     public void onStartInputView (EditorInfo info, boolean restarting){
         super.onStartInputView(info, restarting);
         currentView.invalidate();
-        mainKeyboardView.invalidate();
+        mainKeyboardView.getView().invalidate();
 
     }
 
