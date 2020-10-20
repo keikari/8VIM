@@ -10,6 +10,8 @@ import android.util.AttributeSet;
 
 import java.util.List;
 
+import inc.flide.vim8.geometry.Dimention;
+import inc.flide.vim8.keyboardHelpers.InputMethodViewHelper;
 import inc.flide.vim8.structures.Constants;
 
 public abstract class ButtonKeyboardView extends KeyboardView {
@@ -25,21 +27,12 @@ public abstract class ButtonKeyboardView extends KeyboardView {
     @Override
     public void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
-        int width = MeasureSpec.getSize(widthMeasureSpec);
-        int height = MeasureSpec.getSize(heightMeasureSpec);
+        Dimention computedDimension = InputMethodViewHelper.onMeasureHelper(
+                                                    MeasureSpec.getSize(widthMeasureSpec),
+                                                    MeasureSpec.getSize(heightMeasureSpec),
+                                                    getResources().getConfiguration().orientation);
 
-        if(getResources().getConfiguration().orientation == android.content.res.Configuration.ORIENTATION_LANDSCAPE)
-        {
-            //Landscape is just un-usable right now.
-            // TODO: Landscape mode requires more clarity, what exactly do you want to do?
-            width = Math.round(1.33f * height);
-        }
-        else  // Portrait mode
-        {
-            height = Math.round(0.8f * (width-(60*3)));
-        }
-
-        setMeasuredDimension(width, height);
+        setMeasuredDimension(computedDimension.getWidth(), computedDimension.getHeight());
     }
 
     @Override
