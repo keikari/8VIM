@@ -351,7 +351,7 @@ public class XboardView extends View {
             listOfPointsOfDisplay.addAll(getCharacterDisplayPointsOnTheLineSegment(lineSegment, 4, characterHeight));
         }
 
-        setMeasuredDimension(width, height);
+        setMeasuredDimension(computedDimension.getWidth(), computedDimension.getHeight());
     }
 
 }
