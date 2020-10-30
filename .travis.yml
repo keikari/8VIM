@@ -1,4 +1,6 @@
 language: android
+arch: amd64
+os: linux
 dist: bionic
 android:
     components:
