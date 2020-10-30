@@ -1,6 +1,5 @@
 language: android
-dist: trusty
-java: openjdk11
+dist: bionic
 android:
     components:
         - build-tools-29.0.2
